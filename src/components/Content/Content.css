@@ -1,0 +1,496 @@
+.content{
+    padding-top: 40px;
+    background-color: #E5E5E5;
+}
+
+.dich-vu{
+    display:block;
+    background-color: #151515;
+    height: 630px;
+}
+.dich-vu .row{
+    margin-left: 6px;
+}
+
+.dich-vu h1{
+    padding-top: 40px;
+    margin: 0%;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(216, 214, 214);
+    line-height: 79px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+}
+
+.dich-vu h2{
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    padding-bottom: 40px;
+}
+.dich-vu .service{
+    display: flex;
+    position: relative;
+    width: 93%;
+    padding-top: 79%;
+    align-items: flex-end;
+    border: 2px solid #151515;
+}
+.dich-vu .service-name{
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 85px;
+    opacity: 0.7;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.dich-vu .service:hover{
+    border: 2px solid rgb(163, 0, 0);
+
+}
+#yoga{
+    background-image: url('./../../store/imgs/yoga.png');
+}
+#personal-trainer{
+    background-image: url('./../../store/imgs/personal-trainer.png');
+}
+#zumba{
+    background-image: url('./../../store/imgs/zumba.png');
+}
+
+
+.btn-dv{
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151515;
+    width: 168px;
+    height: 49px;
+    border: 2px solid #C20518;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.link-dv{
+    text-decoration: none;
+}
+
+.btn-dich-vu{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.btn-dv:hover{
+    background-color:  #C20518;
+}
+
+.su-kien{
+    margin-top: 40px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('./../../store/imgs/bg-sukien.png');
+    height: auto;
+}
+
+.su-kien h1{
+    padding-top: 40px;
+    margin: 0%;
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(216, 214, 214);
+    line-height: 79px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+}
+.su-kien h2{
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    margin-bottom: 25px;
+}
+
+.slider-event{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 78vw;
+    padding-top: 49%;
+}
+.slider-wrapper-event {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.navigation-left-event {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    left: -2px;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.navigation-left-event:hover,
+.navigation-right-event:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.navigation-right-event {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    right: -2px;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.navigation-left-icon-event {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.navigation-right-icon-event {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.slides-event {
+    display: flex;
+    width: 500%;
+    height: 80vh;
+}
+
+.slides-event input {
+    display: none;
+}
+
+.slide-event {
+    width: 20%;
+    transition: all ease 1.5s;
+}
+
+.slide-event img {
+    display: block;
+    width: 100%;
+    height: 44.4vw;
+}
+
+
+.navigation-auto-event {
+    position: absolute;
+    top: calc(100% - 20px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto-event div  {
+    padding: 4px;
+    width: 40px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    transition: all 0.2s;
+    opacity: 0.3;
+}
+
+.navigation-auto-event div:not(:last-child)  {
+    margin-right: 10px;
+}
+
+#radio1-event:checked ~ .first-event {
+    margin-left: 0%;
+}
+
+#radio2-event:checked ~ .first-event {
+    margin-left: -20%;
+}
+
+#radio3-event:checked ~ .first-event {
+    margin-left: -40%;
+}
+
+#radio1-event:checked ~ .navigation-auto-event .navigation-auto1-event {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+#radio2-event:checked ~ .navigation-auto-event .navigation-auto2-event {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+#radio3-event:checked ~ .navigation-auto-event .navigation-auto3-event {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+
+.goi-tap{
+    display:block;
+    margin-top: 40px;
+    background-color: #151515;
+    height: 678px;
+}
+.goi-tap .row{
+    margin-left: 6px;
+}
+
+.goi-tap h1{
+    padding-top: 40px;
+    margin: 0%;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+    line-height: 79px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+}
+
+.goi-tap h2{
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    padding-bottom: 20px;
+}
+
+.goi-tap .package{
+    display: flex;
+    height: 18vw;
+    width: 25vw;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid #151515;
+}
+.goi-tap .name{
+    margin-top: 35px;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.03em;
+}
+.goi-tap .tong-chi-phi{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+}
+.goi-tap .price{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 40px;
+    height: 50px;
+    letter-spacing: 0.03em;
+}
+.goi-tap .vnd{
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 0.03em;
+}
+#star{
+background-image: url('./../../store/imgs/star.png');
+height: 18vw;
+    width: 25vw;
+}
+
+.goi-tap .package:hover{
+    border: 2px solid rgb(163, 0, 0);
+
+}
+
+.btn-gt{
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151515;
+    width: 168px;
+    height: 49px;
+    border: 2px solid #C20518;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.link-gt{
+    text-decoration: none;
+}
+
+.btn-goi-tap{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.btn-gt:hover{
+    background-color:  #C20518;
+}
+
+.goi-tap ul{
+    margin-top: 20px;
+}
+.goi-tap ul li{
+    margin-top: 10px;
+    margin-left: 55px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+}
+@media (min-width: 1024px) and (max-width: 1239px){
+    .dich-vu h1{
+        padding-top: 35px;
+        font-size: 45px;
+        line-height: 70px;
+    }
+    
+    .dich-vu h2{
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+    .btn-gt{
+        font-weight: 450;
+        font-size: 18px;
+        width: 145px;
+        height: 45px;
+    }
+    .su-kien h1{
+        padding-top: 35px;
+        font-size: 45px;
+        line-height: 70px;
+    }
+    .su-kien h2{
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+    .dich-vu .service-name{
+        font-size: 25px;
+        font-weight: 650;
+    }
+    .goi-tap h1{
+        padding-top: 35px;
+        font-size: 45px;
+        line-height: 70px;
+    }
+    
+    .goi-tap h2{
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+    .goi-tap ul li{
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 740px) and (max-width: 1023px){
+    .dich-vu .service-name{
+        font-size: 20px;
+        font-weight: 550;
+    }
+    .btn-gt{
+        font-weight: 400;
+        font-size: 16px;
+        width: 140px;
+        height: 40px;
+    }
+    .su-kien h1{
+        padding-top: 30px;
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .su-kien h2{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 18px;
+    }
+    .dich-vu h1{
+        padding-top: 30px;
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .dich-vu h2{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 18px;
+    }
+    .goi-tap h1{
+        padding-top: 30px;
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .goi-tap h2{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 18px;
+    }
+    .goi-tap ul li{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 18px;
+    }
+}

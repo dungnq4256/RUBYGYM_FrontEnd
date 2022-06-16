@@ -1,0 +1,242 @@
+:root {
+    --header-height: 75px;
+}
+.wide{
+    margin: 0;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: #350409;
+    z-index: 1;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    display: block;
+}
+
+.logo-name {
+    letter-spacing: 4px;
+    font-size: 45px;
+    background-color: rgba(255, 255, 255, 0.884);
+    color: transparent;
+    text-shadow: 0px 2px 3px #C20518;
+    -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+    text-decoration: none;
+    font-weight: 800;
+
+}
+
+.nav-list {
+    margin-bottom:1;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline-start: 1rem;
+}
+
+.nav-item a{
+    letter-spacing: 1px;
+    color: white;
+    padding: 0 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 450;
+    font-size: 20px;
+    text-shadow: 0 0 2px #ccc;
+    transition: all ease 0.2s;
+}
+
+.nav-item a:hover {
+    color: #C20518;
+    text-shadow: 0px 0px 1px #fff;
+    -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.header-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #C20518;
+    border-radius: 20px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-login::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    background-color:    #C20518;
+    border-radius: 15px;
+    width: 0;
+    z-index: -1;
+    /* transition: all ease 0.3s; */
+}
+
+.header-login:hover:before {
+    width: calc(100% + 2px);
+}
+
+.login-icon {
+    color: white;
+    display: block;
+    padding: 0 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.header-login a {
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+.header-user {
+    display: flex;   
+    align-items: center; 
+    cursor: pointer;
+    position: relative;
+}
+
+
+.header-user-icon {
+    font-size: 22px;
+    color: white;
+    margin: 0 0 1px 8px;
+}
+
+.header-user-option {
+    position: absolute;
+    top: 100%;
+    min-width: 180px;
+    right: 0;
+    display: block;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px #ccc;
+    z-index: 2;
+}
+
+.user-option-list {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.user-option-item {
+    display: block;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.user-option-item:hover {
+    background-color: #ddd;
+}
+
+.user-option-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.virtual-modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ccc;
+    opacity: 0;
+    z-index: 1;
+}
+
+.header-user-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+.header-user-role{
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.03em;
+    margin-right: 5px;
+}
+.header-user-name{
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.03em;
+    margin-right: 8px;
+}
+@media (min-width: 740px) and (max-width: 1023px)
+{
+    .logo-img{
+        width: 60px;
+        height: auto;
+    }
+    .logo-name{
+        font-size: 35px;
+    }
+    .nav-item a{
+        letter-spacing: 0.5px;
+        padding: 0 8px;
+        font-weight: 420;
+        font-size: 18px;
+        text-shadow: 0 0 1px #ccc;
+    }
+}
+@media (max-width: 739px)
+{
+    .logo-img{
+        width: 60px;
+        height: auto;
+    }
+    .logo-name{
+        font-size: 30px;
+    }
+    .nav-item a{
+        letter-spacing: 0.3px;
+        padding: 0 6px;
+        font-weight: 450;
+        font-size: 16px;
+        text-shadow: 0 0 1px #ccc;
+    }
+}
