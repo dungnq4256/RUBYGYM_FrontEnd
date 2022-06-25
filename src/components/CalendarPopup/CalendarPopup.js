@@ -1,4 +1,5 @@
-import { React, useState, useRef, useEffect } from 'react'
+import React from 'react';
+import {useState, useRef, useEffect } from 'react'
 import { useTable } from 'react-table';
 import './CalendarPopup.css';
 import calendarAPI from '../../api/calendarAPI';
@@ -131,7 +132,7 @@ function CalendarPopup(props) {
             { Header: 'Bài học', accessor: 'lecture' },
             {
                 Header: 'Nghỉ', accessor: 'is_cancelled',
-                // Cell: <input type='checkbox' disabled={true} />
+                Cell: <input type='checkbox' disabled={true} />
             },
         ];
     // const handleEdit = () => {
@@ -158,7 +159,7 @@ function CalendarPopup(props) {
             document.removeEventListener('click', checkIfClickedOutside, true);
         };
     }, [props.trigger]);
-    return (props && props.trigger) ? (
+    return props.trigger ? (
         <>
             <div className="popupWrapper"  >
                 <div className="popupInner" ref={ref}>

@@ -113,7 +113,7 @@ function CustomerDetail() {
             <div className={clsx(styles.inforField)}>
                 <div className={clsx(styles.header)}>
                     <h1 className={clsx(styles.inforHeading)}>
-                        Thông tin cá nhân
+                        Thông tin cá nhân hội viên
                     </h1>
                     {/* {isPTag && (
                         <div>

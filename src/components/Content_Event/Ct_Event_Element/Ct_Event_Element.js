@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Ct_Event_Element.css";
-import sk1_event from "./../../../store/imgs/sk1_event.png";
 
 function Ct_Event_Element({event}) {
     return (

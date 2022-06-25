@@ -128,7 +128,7 @@ function TrainerInfor() {
             <div className={clsx(styles.inforField)}>
                 <div className={clsx(styles.header)}>
                     <h1 className={clsx(styles.inforHeading)}>
-                        Thông tin cá nhân
+                        Thông tin cá nhân huấn luyện viên
                     </h1>
                     {isPTag && (
                         <div>

@@ -1,4 +1,5 @@
-import { React, useState, useRef, useEffect } from 'react'
+import React from 'react';
+import {useState, useRef, useEffect } from 'react'
 import { useTable } from 'react-table';
 import clsx from "clsx";
 import { TrainerRating } from './../../';
@@ -158,14 +159,14 @@ function MemberList() {
         })();   
     }, [id]); 
 
-    // return (
-    //     <>
-    //         <Table
-    //             columns={column}
-    //             data={data}
-    //         />
-    //         <TrainerRating trigger={showPopup} setTrigger={setShowPopup} ratingState={memberTraingInfor} avatarUrl={avatarUrl} />
-    //     </>
-    // )
+    return (
+        <>
+            <Table
+                columns={column}
+                data={data}
+            />
+            <TrainerRating trigger={showPopup} setTrigger={setShowPopup} ratingState={memberTraingInfor} avatarUrl={avatarUrl} />
+        </>
+    )
 }
 export default MemberList

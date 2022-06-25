@@ -1,4 +1,5 @@
-import { React, useState, useRef, useEffect } from "react";
+
+import React, {useState, useRef, useEffect } from "react";
 import practiceInfoAPI from "../../../api/practiceInfoAPI";
 import styles from "./TrainerRating.css";
 import clsx from "clsx";
