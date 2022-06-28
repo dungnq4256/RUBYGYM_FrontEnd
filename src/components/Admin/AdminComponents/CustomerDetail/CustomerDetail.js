@@ -62,7 +62,7 @@ function CustomerDetail() {
                 setProfileOnChange(userProfile);
                 //console.log(response);
                 setUserProfile(userProfile);
-                //console.log(userProfile);
+                console.log(userProfile);
             }
         })();
     }, []);
@@ -115,32 +115,6 @@ function CustomerDetail() {
                     <h1 className={clsx(styles.inforHeading)}>
                         Thông tin cá nhân hội viên
                     </h1>
-                    {/* {isPTag && (
-                        <div>
-                            <button
-                                onClick={handleEdit}
-                                className={clsx(styles.btnEdit)}
-                            >
-                                Chỉnh sửa
-                            </button>
-                        </div>
-                    )}
-                    {!isPTag && (
-                        <div>
-                            <button
-                                onClick={handleUpdate}
-                                className={clsx(styles.btnUpdate)}
-                            >
-                                Lưu
-                            </button>
-                            <button
-                                onClick={handleCancel}
-                                className={clsx(styles.btnCancel)}
-                            >
-                                Huỷ
-                            </button>
-                        </div>
-                    )} */}
                 </div>
 
                 <div className="row">

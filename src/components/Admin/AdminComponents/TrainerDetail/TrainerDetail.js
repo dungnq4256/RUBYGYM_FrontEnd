@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './TrainerDetail.css'
 import { useParams } from 'react-router-dom'
-import avatar from './../../../../store/imgs/trainer-1.png'
 import { Popup, MyCalendar } from "../../../";
-import Timetablee from './../../../Timetablee.js'
 import { useNavigate } from "react-router-dom";
 import managementAPI from '../../../../api/managementAPI'
 

@@ -82,17 +82,24 @@ function Header() {
                                             onClick={handleShowOption}
                                             className="user-option-item"
                                         >
+                                            {localStorage.getItem("role") == "admin" && (
+                                            <Link to={"/admin"}>
+                                            Trang Admin
+                                        </Link>
+                                            )}
+                                            {localStorage.getItem("role") !== "admin" && (
                                             <Link
-                                                to={
-                                                    "/" +
-                                                    localStorage.getItem(
-                                                        "role"
-                                                    ) +
-                                                    "/profile"
-                                                }
-                                            >
-                                                Thông tin cá nhân
-                                            </Link>
+                                            to={
+                                                "/" +
+                                                localStorage.getItem(
+                                                    "role"
+                                                ) +
+                                                "/profile"
+                                            }
+                                        >
+                                            Thông tin cá nhân
+                                        </Link>
+                                            )}
                                         </li>
                                         <li
                                             onClick={handleShowOption}

@@ -88,7 +88,7 @@ function TrainerInforOfCustomer({ member, trainer_id }) {
                     <h1 className={clsx(styles.inforHeading)}>
                         Thông tin huấn luyện viên
                     </h1>
-                    {isPTag && (
+                    {localStorage.getItem("role") == "admin" && isPTag && (
                         <div className={clsx(styles.btnEditWrapper)}>
                             <button
                                 onClick={handleEdit}
@@ -98,7 +98,7 @@ function TrainerInforOfCustomer({ member, trainer_id }) {
                             </button>
                         </div>
                     )}
-                    {!isPTag && (
+                    {localStorage.getItem("role") == "admin" && !isPTag && (
                         <div>
                             <button
                                 onClick={handleUpdate}

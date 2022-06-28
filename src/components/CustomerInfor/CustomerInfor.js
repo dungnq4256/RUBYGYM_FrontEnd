@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import avatar from "./../../store/imgs/avatar.jpg";
-import { Popup, MyCalendar, TrainingInfor } from "./../";
+import { Popup, MyCalendar, TrainingInfor, TrainerInforOfCustomer } from "./../";
 import userProfileAPI from "./../../api/userProfileAPI";
 
 import styles from "./CustomerInfor.module.css";
@@ -23,6 +23,7 @@ function CustomerInfor() {
         created_at: "",
         expired_at: "",
         avatar_url: "",
+        trainer_id: '',
     });
     let [profileOnChange, setProfileOnChange] = useState({
         name: userProfile.name,
@@ -63,11 +64,11 @@ function CustomerInfor() {
                 setProfileOnChange(userProfile);
                 //console.log(response);
                 setUserProfile(userProfile);
-                //console.log(userProfile);
+                console.log(userProfile);
             }
         })();
     }, []);
-
+  
     // Upload Avatar
     const handleUploadAvatar = async (e) => {
         const file = e.target.files[0];
@@ -435,7 +436,16 @@ function CustomerInfor() {
                     </div>
                 </div>
             </div>
+            
+             {/* Ghép đôi */}
+            <div className={clsx(styles.inforField)}>
+                <div className={clsx(styles.inforHeading)}>
+                    {/* Thông tin huấn luyện viên */}
+                </div>
+                {userProfile.trainer_id && <TrainerInforOfCustomer member={userProfile} trainer_id={userProfile.trainer_id}/>}
+            </div>                                   
 
+        
             {/* Lịch tập luyện */}
             <div className={clsx(styles.inforField)}>
                 <TrainingInfor />

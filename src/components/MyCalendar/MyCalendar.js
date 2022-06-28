@@ -105,7 +105,7 @@ function MyCalendar({ id, role, trigger }) {
   }
 
   return (
-    <div >
+    <div className='calendar-infor'>
       <Calendar
         onChange={onChange}
         value={value}

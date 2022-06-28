@@ -1,7 +1,9 @@
 .khongcogi{
     height: 50px;
 }
-
+.calendar-infor{
+    margin-bottom: 50px;
+}
 .react-calendar {
 width: 100%;
 max-width: 100%;
