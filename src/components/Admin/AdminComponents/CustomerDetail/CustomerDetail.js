@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import {Link, useParams } from 'react-router-dom'
 import clsx from 'clsx'
 import avatar from './../../../../store/imgs/loading.gif'
 import styles from './CustomerDetail.module.css'
@@ -109,13 +109,16 @@ function CustomerDetail() {
 
     return (
         <div className="grid">
+            <div className={clsx(styles.trainerDetailHeader)}>
+            <Link to="/admin/members" className={clsx(styles.backMemberList)}>
+                        <i class="fas fa-arrow-left"></i>
+                    </Link>
+            <h1 className="trainer-headingg">HỘI VIÊN</h1>
+            {/* <button className="trainer-add-btn">Chỉnh sửa</button> */}
+            </div>
             {/* Thông tin cá nhân */}
             <div className={clsx(styles.inforField)}>
-                <div className={clsx(styles.header)}>
-                    <h1 className={clsx(styles.inforHeading)}>
-                        Thông tin cá nhân hội viên
-                    </h1>
-                </div>
+                
 
                 <div className="row">
                     {/* Avatar */}

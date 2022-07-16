@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Banner, Footer, Header, Content} from '../components'
-import Timetablee from '../components/Timetablee'
 
 function Homepage() {
+    useEffect(() => {
+        document.title = 'Trang chủ - RUBYGYM';
+      });
     return (
         <>
             <Header />

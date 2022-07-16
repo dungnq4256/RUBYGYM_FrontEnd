@@ -50,7 +50,11 @@
     background-color: var(--primary-color);
     height: 60px;
 }
-
+.back-trainer-list{
+    color: white;
+    margin-left: 10px;
+    font-size: 25px;
+}
 .trainer-headingg {
     color: white;
     font-size: 35px;

@@ -2,9 +2,11 @@ import { Trainer } from "../components"
 import { TrainerInfor } from "../components"
 import { Header } from "../components"
 import { Footer } from "../components"
-import React from "react"
+import React, {useEffect} from "react"
 function TrainerPage() {
-
+    useEffect(() => {
+        document.title = 'Thông tin cá nhân - RUBYGYM';
+      });
     return (
         <>
             <Header />

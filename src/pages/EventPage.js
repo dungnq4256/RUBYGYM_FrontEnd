@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Footer, Header, Content_Event} from '../components'
 
 function Event() {
+    useEffect(() => {
+        document.title = 'Sự kiện - RUBYGYM';
+      });
     return (
         <>
             <Header />

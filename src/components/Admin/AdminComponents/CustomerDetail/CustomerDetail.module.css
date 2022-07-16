@@ -5,7 +5,18 @@
     height: 280px;
     position: relative;
 }
-
+.trainerDetailHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 60px;
+}
+.backMemberList{
+    color: white;
+    margin-left: 10px;
+    font-size: 25px;
+}
 .chooseAvatar {
     position: absolute;
     bottom: 30px;

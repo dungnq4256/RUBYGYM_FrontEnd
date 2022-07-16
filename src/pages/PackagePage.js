@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Footer, Header, Content_Package} from '../components'
 
 function Package() {
+    useEffect(() => {
+        document.title = 'Gói tập - RUBYGYM';
+      });
     return (
         <>
             <Header />

@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Header, CustomerInfor, Footer } from "../components";
 function CustomerPage() {
+    useEffect(() => {
+        document.title = 'Thông tin cá nhân - RUBYGYM';
+      });
     return (
         <>
             <Header />

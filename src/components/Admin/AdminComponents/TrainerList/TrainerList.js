@@ -12,7 +12,7 @@ function TrainerList() {
         (async () => {
             const res = await managementAPI.trainerList();
             console.log(res);
-            trainers = res.data.data.trainer_list
+            trainers = res.data.data.trainer_list;
             setTrainers(trainers)
 
             console.log(trainers)

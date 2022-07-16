@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './TrainerDetail.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Popup, MyCalendar } from "../../../";
 import { useNavigate } from "react-router-dom";
 import managementAPI from '../../../../api/managementAPI'
@@ -34,6 +34,9 @@ function TrainerDetail() {
     return (
         <div className="trainer-detail-wrapper">
             <div className="trainer-detail-header">
+            <Link to="/admin/trainers/" className="back-trainer-list">
+                        <i class="fas fa-arrow-left"></i>
+                    </Link>
             <h1 className="trainer-headingg">HUẤN LUYỆN VIÊN</h1>
             {/* <button className="trainer-add-btn">Chỉnh sửa</button> */}
             </div>
