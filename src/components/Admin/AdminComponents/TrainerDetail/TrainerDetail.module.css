@@ -1,0 +1,184 @@
+.tableMemberList{
+    width: 100%;
+    border: 0px solid #bebebe;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.tableHeader{
+    height: 50px;
+    color: white;
+    background-color: #9F4A4A;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+.tableHeader th{
+    font-weight: 500;
+    border: 1.5px solid #bebebe;
+}
+.tableMemberList tbody{
+    border: 1.5px solid #bebebe;
+}
+.tableMemberList tbody td{
+    background-color: white;
+    border: 1.5px;
+    border-bottom: 1.5px solid #bebebe;
+    text-align: center;
+    height: 60px;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+}
+.tableMemberList img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.btnMemberDetail{
+        height: 35px;
+        width: 100px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 16px;
+        text-align: center;
+        color: white;
+        background-color: #C51022;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        letter-spacing: 0.05em;
+        justify-content: center;
+}
+.btnMemberDetail:hover{
+        transform: scale(1.005);
+        transform: translateY(-2px);
+}
+
+table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+}
+.avatarAndName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+    min-height: 250px;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.userName{
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    margin-top: 50px;
+}
+.avatar {
+    width: 280px;
+    margin-top: 40px;
+    border-radius: 50%;
+    height: 280px;
+    position: relative;
+}
+.inforHeading {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    color: var(--text-color);
+    letter-spacing: 0.02em;
+}
+
+.infor {
+    letter-spacing: 0.02em;
+    height: 100%;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+}
+.inforWrapperAll{
+    width: 90%;
+    margin: 10px 0 20px 30px;
+
+}
+
+.inforWrapper {
+    width: 100%;
+    padding:6px 0 4px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .inforWrapper:not(:last-child) {
+    margin-bottom: 20px;
+} */
+
+.inforContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.inforContent b{
+    font-weight: 500;
+    font-size: 18px;
+    padding: 1px 2px;
+}
+.inforContent input{
+    letter-spacing: 0.02em;
+    font-weight: 500;
+    font-size: 18px;
+}
+.inforContent select{
+    font-weight: 500;
+    font-size: 18px;
+}
+.inforGender{
+    height: 30px;
+}
+.inforLabel {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.inforText {
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.trainerDetailHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 60px;
+}
+.backTrainerList{
+    color: white;
+    margin-left: 10px;
+    font-size: 25px;
+}
+.trainerHeading {
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    flex: 1;
+    text-align: start;
+    padding: 7px 0 0 20px;
+}
+.trainerDetailContent {
+    padding: 20px 20px 0;
+}
+.trainerStudents {
+    width: 100%;
+    margin: 0 16px;
+}
+.trainerDetailTitle{
+    text-align: center;
+    margin:40px 0 15px;
+    font-size: 28px;
+    font-weight: 600;
+}

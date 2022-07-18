@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import {Link, useParams } from 'react-router-dom'
-import clsx from 'clsx'
-import avatar from './../../../../store/imgs/loading.gif'
-import styles from './CustomerDetail.module.css'
-import { Popup, MyCalendar, TrainingInfor, TrainerInforOfCustomer } from "../../../";
-import managementAPI from '../../../../api/managementAPI'
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import clsx from "clsx";
+import avatar from "./../../../../store/imgs/loading.gif";
+import styles from "./CustomerDetail.module.css";
+import {
+    Popup,
+    MyCalendar,
+    TrainingInfor,
+    TrainerInforOfCustomer,
+} from "../../../";
+import managementAPI from "../../../../api/managementAPI";
 
 function CustomerDetail() {
     const { id } = useParams();
@@ -21,7 +26,7 @@ function CustomerDetail() {
         created_at: "",
         expired_at: "",
         avatar_url: "",
-        trainer_id: ''
+        trainer_id: "",
     });
     let [profileOnChange, setProfileOnChange] = useState({
         name: userProfile.name,
@@ -72,7 +77,6 @@ function CustomerDetail() {
         // const file = e.target.files[0];
         // const formData = new FormData();
         // formData.append("File", file);
-
         // const response = await userProfileAPI.updateAvatar(formData);
         // if (
         //     response &&
@@ -108,55 +112,41 @@ function CustomerDetail() {
     };
 
     return (
-        <div className="grid">
-            <div className={clsx(styles.trainerDetailHeader)}>
-            <Link to="/admin/members" className={clsx(styles.backMemberList)}>
+        <div className={clsx(styles.customerDetailContent)}>
+            <div className="grid">
+                <div className={clsx(styles.trainerDetailHeader)}>
+                    <Link
+                        to="/admin/members"
+                        className={clsx(styles.backMemberList)}
+                    >
                         <i class="fas fa-arrow-left"></i>
                     </Link>
-            <h1 className="trainer-headingg">HỘI VIÊN</h1>
-            {/* <button className="trainer-add-btn">Chỉnh sửa</button> */}
-            </div>
-            {/* Thông tin cá nhân */}
-            <div className={clsx(styles.inforField)}>
-                
-
-                <div className="row">
-                    {/* Avatar */}
-                    <div className="col l-5 m-0 c-0">
-                        <div className={clsx(styles.avatarAndName)}>
-                            <div
-                                className={clsx(styles.avatar)}
-                                style={{
-                                    backgroundImage: userProfile.avatar_url
-                                        ? `url(${process.env.REACT_APP_API_URL + userProfile.avatar_url})`
-                                        : `url(${avatar})`,
-                                    backgroundPosition: "center",
-                                    backgroundSize: "cover",
-                                    backgroundRepeat: "no-repeat",
-                                }}
-                            >
-                                <label
-                                    htmlFor="avatarChoose"
-                                    className={clsx(styles.chooseAvatar)}
-                                >
-                                    <i
-                                        className={clsx(
-                                            styles.chooseAvatarIcon,
-                                            "fas fa-camera"
-                                        )}
-                                    ></i>
-                                </label>
-                                <input
-                                    type="file"
-                                    id="avatarChoose"
-                                    hidden
-                                    onChange={handleUploadAvatar}
-                                />
-                            </div>
-                            <div className={clsx(styles.userName)}>
-                                {userProfile.name}
-                            </div>
-                            {/* {isPTag ? (
+                    <h1 className="trainer-headingg">HỘI VIÊN</h1>
+                    {/* <button className="trainer-add-btn">Chỉnh sửa</button> */}
+                </div>
+                {/* Thông tin cá nhân */}
+                <div className={clsx(styles.inforField)}>
+                    <div className="row">
+                        {/* Avatar */}
+                        <div className="col l-5 m-0 c-0">
+                            <div className={clsx(styles.avatarAndName)}>
+                                <div
+                                    className={clsx(styles.avatar)}
+                                    style={{
+                                        backgroundImage: userProfile.avatar_url
+                                            ? `url(${process.env
+                                                  .REACT_APP_API_URL +
+                                                  userProfile.avatar_url})`
+                                            : `url(${avatar})`,
+                                        backgroundPosition: "center",
+                                        backgroundSize: "cover",
+                                        backgroundRepeat: "no-repeat",
+                                    }}
+                                ></div>
+                                <div className={clsx(styles.userName)}>
+                                    {userProfile.name}
+                                </div>
+                                {/* {isPTag ? (
                                 <div
                                     onClick={handleEdit}
                                     className={clsx(styles.btnEditOn)}
@@ -170,79 +160,261 @@ function CustomerDetail() {
                                     Chỉnh sửa thông tin
                                 </div>
                             )} */}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Thông tin */}
-                    <div className="col l-7 m-12 c-12">
-                        <div className={clsx(styles.infor)}>
-                            <div className={clsx(styles.inforWrapperAll)}>
-                                <div className={clsx(styles.inforWrapper)}>
-                                    {/* Tên */}
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Họ và tên
-                                        </h3>
-                                        {isPTag ? (
-                                            <b>{userProfile.name}</b>
-                                        ) : (
-                                            <input
-                                                //readOnly={!nameUpdating}
-                                                //ref={nameRef}
-                                                type="text"
+                        {/* Thông tin */}
+                        <div className="col l-7 m-12 c-12">
+                            <div className={clsx(styles.infor)}>
+                                <div className={clsx(styles.inforWrapperAll)}>
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        {/* Tên */}
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
                                                 className={clsx(
-                                                    styles.inforText
+                                                    styles.inforLabel
                                                 )}
-                                                value={profileOnChange.name}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        name: e.target.value,
-                                                    });
-                                                }}
-                                                id="trainer-name"
-                                            />
-                                        )}
+                                            >
+                                                Họ và tên
+                                            </h3>
+                                            {isPTag ? (
+                                                <b>{userProfile.name}</b>
+                                            ) : (
+                                                <input
+                                                    //readOnly={!nameUpdating}
+                                                    //ref={nameRef}
+                                                    type="text"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={profileOnChange.name}
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            name:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                    id="trainer-name"
+                                                />
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* Số điện thoại */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Số điện thoại
-                                        </h3>
-                                        {isPTag ? (
-                                            <b>{userProfile.phone}</b>
-                                        ) : (
-                                            <input
-                                                // readOnly={!phoneUpdating}
-                                                // ref={phoneRef}
-                                                type="text"
+                                    {/* Số điện thoại */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
                                                 className={clsx(
-                                                    styles.inforText
+                                                    styles.inforLabel
                                                 )}
-                                                value={profileOnChange.phone}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        phone: e.target.value,
-                                                    });
-                                                }}
-                                                id="trainer-phone"
-                                            />
-                                        )}
+                                            >
+                                                Số điện thoại
+                                            </h3>
+                                            {isPTag ? (
+                                                <b>{userProfile.phone}</b>
+                                            ) : (
+                                                <input
+                                                    // readOnly={!phoneUpdating}
+                                                    // ref={phoneRef}
+                                                    type="text"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        profileOnChange.phone
+                                                    }
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            phone:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                    id="trainer-phone"
+                                                />
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* Ngày sinh */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Ngày sinh
-                                        </h3>
-                                        {isPTag ? (
-                                            // <input>{userProfile.birthday.substring(0, 10)}</input>
+                                    {/* Ngày sinh */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
+                                                className={clsx(
+                                                    styles.inforLabel
+                                                )}
+                                            >
+                                                Ngày sinh
+                                            </h3>
+                                            {isPTag ? (
+                                                // <input>{userProfile.birthday.substring(0, 10)}</input>
+                                                <input
+                                                    readOnly={true}
+                                                    // ref={birthdayRef}
+                                                    type="date"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        userProfile.birthday
+                                                            ? userProfile.birthday.substring(
+                                                                  0,
+                                                                  10
+                                                              )
+                                                            : ""
+                                                    }
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            birthday:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                    id="trainer-birthday"
+                                                />
+                                            ) : (
+                                                <input
+                                                    // readOnly={!birthdayUpdating}
+                                                    // ref={birthdayRef}
+                                                    type="date"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        profileOnChange.birthday
+                                                            ? profileOnChange.birthday.substring(
+                                                                  0,
+                                                                  10
+                                                              )
+                                                            : ""
+                                                    }
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            birthday:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                    id="trainer-birthday"
+                                                />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Giới tính */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
+                                                className={clsx(
+                                                    styles.inforLabel
+                                                )}
+                                            >
+                                                Giới tính
+                                            </h3>
+                                            {isPTag ? (
+                                                <b
+                                                    className={clsx(
+                                                        styles.inforGender
+                                                    )}
+                                                >
+                                                    {userProfile.gender}
+                                                </b>
+                                            ) : (
+                                                <select
+                                                    // disabled={!genderUpdating}
+                                                    // ref={genderRef}
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        profileOnChange.gender
+                                                    }
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            gender:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                >
+                                                    <option>Nam</option>
+                                                    <option>Nữ</option>
+                                                </select>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Địa chỉ */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
+                                                className={clsx(
+                                                    styles.inforLabel
+                                                )}
+                                            >
+                                                Địa chỉ
+                                            </h3>
+                                            {isPTag ? (
+                                                <b>{userProfile.address}</b>
+                                            ) : (
+                                                <input
+                                                    // readOnly={!addressUpdating}
+                                                    // ref={addressRef}
+                                                    type="text"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        profileOnChange.address
+                                                    }
+                                                    onChange={(e) => {
+                                                        setProfileOnChange({
+                                                            ...profileOnChange,
+                                                            address:
+                                                                e.target.value,
+                                                        });
+                                                    }}
+                                                    id="trainer-address"
+                                                />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Ngày đăng ký */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
+                                                className={clsx(
+                                                    styles.inforLabel
+                                                )}
+                                            >
+                                                Ngày đăng ký
+                                            </h3>
                                             <input
                                                 readOnly={true}
                                                 // ref={birthdayRef}
@@ -250,185 +422,92 @@ function CustomerDetail() {
                                                 className={clsx(
                                                     styles.inforText
                                                 )}
-                                                value={userProfile.birthday ? userProfile.birthday.substring(
-                                                    0,
-                                                    10
-                                                ) : ''}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        birthday:
-                                                            e.target.value,
-                                                    });
-                                                }}
-                                                id="trainer-birthday"
+                                                value={
+                                                    userProfile.created_at
+                                                        ? userProfile.created_at.substring(
+                                                              0,
+                                                              10
+                                                          )
+                                                        : ""
+                                                }
                                             />
-                                        ) : (
+                                        </div>
+                                    </div>
+
+                                    {/* Ngày hết hạn */}
+                                    <div className={clsx(styles.inforWrapper)}>
+                                        <div
+                                            className={clsx(
+                                                styles.inforContent
+                                            )}
+                                        >
+                                            <h3
+                                                className={clsx(
+                                                    styles.inforLabel
+                                                )}
+                                            >
+                                                Ngày hết hạn
+                                            </h3>
                                             <input
-                                                // readOnly={!birthdayUpdating}
+                                                //     readOnly={true}
+                                                //     type="date"
+                                                //     className={clsx(styles.inforText)}
+                                                //     value={userProfile.expired_at.substring(
+                                                //         0,
+                                                //         10
+                                                //     )}
+                                                // />
+                                                readOnly={true}
                                                 // ref={birthdayRef}
                                                 type="date"
                                                 className={clsx(
                                                     styles.inforText
                                                 )}
-                                                value={profileOnChange.birthday ? profileOnChange.birthday.substring(
-                                                    0,
-                                                    10
-                                                ) : ''}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        birthday:
-                                                            e.target.value,
-                                                    });
-                                                }}
-                                                id="trainer-birthday"
+                                                value={
+                                                    userProfile.expired_at
+                                                        ? userProfile.expired_at.substring(
+                                                              0,
+                                                              10
+                                                          )
+                                                        : ""
+                                                }
                                             />
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Giới tính */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Giới tính
-                                        </h3>
-                                        {isPTag ? (
-                                            <b
-                                                className={clsx(
-                                                    styles.inforGender
-                                                )}
-                                            >
-                                                {userProfile.gender}
-                                            </b>
-                                        ) : (
-                                            <select
-                                                // disabled={!genderUpdating}
-                                                // ref={genderRef}
-                                                className={clsx(
-                                                    styles.inforText
-                                                )}
-                                                value={profileOnChange.gender}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        gender: e.target.value,
-                                                    });
-                                                }}
-                                            >
-                                                <option>Nam</option>
-                                                <option>Nữ</option>
-                                            </select>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Địa chỉ */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Địa chỉ
-                                        </h3>
-                                        {isPTag ? (
-                                            <b>{userProfile.address}</b>
-                                        ) : (
-                                            <input
-                                                // readOnly={!addressUpdating}
-                                                // ref={addressRef}
-                                                type="text"
-                                                className={clsx(
-                                                    styles.inforText
-                                                )}
-                                                value={profileOnChange.address}
-                                                onChange={(e) => {
-                                                    setProfileOnChange({
-                                                        ...profileOnChange,
-                                                        address: e.target.value,
-                                                    });
-                                                }}
-                                                id="trainer-address"
-                                            />
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Ngày đăng ký */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Ngày đăng ký
-                                        </h3>
-                                        <input
-                                            readOnly={true}
-                                            // ref={birthdayRef}
-                                            type="date"
-                                            className={clsx(styles.inforText)}
-                                            value={userProfile.created_at ? userProfile.created_at.substring(
-                                                0,
-                                                10
-                                            ) : ""}
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Ngày hết hạn */}
-                                <div className={clsx(styles.inforWrapper)}>
-                                    <div className={clsx(styles.inforContent)}>
-                                        <h3 className={clsx(styles.inforLabel)}>
-                                            Ngày hết hạn
-                                        </h3>
-                                        <input
-                                            //     readOnly={true}
-                                            //     type="date"
-                                            //     className={clsx(styles.inforText)}
-                                            //     value={userProfile.expired_at.substring(
-                                            //         0,
-                                            //         10
-                                            //     )}
-                                            // />
-                                            readOnly={true}
-                                            // ref={birthdayRef}
-                                            type="date"
-                                            className={clsx(styles.inforText)}
-                                            value={userProfile.expired_at ? userProfile.expired_at.substring(
-                                                0,
-                                                10
-                                            ) : ""}
-                                        />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Ghép đôi */}
-            <div className={clsx(styles.inforField)}>
-                <div className={clsx(styles.inforHeading)}>
-                    {/* Thông tin huấn luyện viên */}
+                {/* Ghép đôi */}
+                <div className={clsx(styles.inforField)}>
+                    <div className={clsx(styles.inforHeading)}>
+                        {/* Thông tin huấn luyện viên */}
+                    </div>
+                    {userProfile.trainer_id && (
+                        <TrainerInforOfCustomer
+                            member={userProfile}
+                            trainer_id={userProfile.trainer_id}
+                        />
+                    )}
                 </div>
-                {userProfile.trainer_id && <TrainerInforOfCustomer member={userProfile} trainer_id={userProfile.trainer_id}/>}
-            </div>
 
-            {/* Lịch tập luyện */}
-            <div className={clsx(styles.inforField)}>
-                <TrainingInfor id={id} />
-            </div>
+                {/* Lịch tập luyện */}
+                <div className={clsx(styles.inforField)}>
+                    <TrainingInfor id={id} />
+                </div>
 
-            {/* Lịch tập luyện */}
-            <div className={clsx(styles.inforField)}>
-                <h1 className={clsx(styles.inforHeading)}>
-                    Lịch tập
-                </h1>
-                <MyCalendar id={id} role="member" />
-            </div>
+                {/* Lịch tập luyện */}
+                <div className={clsx(styles.inforField)}>
+                    <h1 className={clsx(styles.inforHeading)}>Lịch tập</h1>
+                    <MyCalendar id={id} role="member" />
+                </div>
 
-            <Popup trigger={showPopup} message="Cập nhật thành công" />
+                <Popup trigger={showPopup} message="Cập nhật thành công" />
+            </div>
         </div>
     );
 }
 
-export default CustomerDetail
+export default CustomerDetail;

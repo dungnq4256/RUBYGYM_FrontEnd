@@ -127,7 +127,7 @@ function MemberList() {
             const response = await trainerProfileAPI.getMyUser();
             // console.log(response);
             if (response && response.data.status) {
-                // console.log(response.data.data.member_list)
+                console.log(response.data.data.member_list)
                 data = response.data.data.member_list;
                 setData(data);
             }            

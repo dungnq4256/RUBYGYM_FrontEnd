@@ -258,3 +258,9 @@
     letter-spacing: 0.05em;
     justify-content: center;
 }
+.customerDetailContent{
+    display: flex;
+}
+.inforField{
+    padding: 20px 20px 0 ;
+}
