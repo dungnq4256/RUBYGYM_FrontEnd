@@ -182,3 +182,12 @@ table, th, td{
     font-size: 28px;
     font-weight: 600;
 }
+.emptyList{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 450;
+    margin: 0 20vw;
+    padding: 10px;
+    color: white;
+    background-color: #9F4A4A;
+}

@@ -1,5 +1,4 @@
-
-import React, {useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import practiceInfoAPI from "../../../api/practiceInfoAPI";
 import styles from "./TrainerRating.css";
 import clsx from "clsx";
@@ -10,7 +9,7 @@ function TrainerRating(props) {
     let [showPopup, setShowPopup] = useState(false);
     let [showConfirmFalse, setShowConfirmFalse] = useState(false);
     let [ratingState, setRatingState] = useState({
-        id: '',
+        id: "",
         height: "160",
         weight: "80",
         bmi: "1.5",
@@ -50,7 +49,10 @@ function TrainerRating(props) {
             // console.log(ratingState.rating);
         } else {
             console.log(ratingState.evaluation);
-            const response = await practiceInfoAPI.updateRating(props.ratingState.member_id, ratingState);
+            const response = await practiceInfoAPI.updateRating(
+                props.ratingState.member_id,
+                ratingState
+            );
             console.log(response);
             if (response && response.status) {
                 setShowPopup(true);
@@ -73,7 +75,9 @@ function TrainerRating(props) {
                     </div>
                     <div className="TrainerRating-Avatar">
                         <img
-                            src={process.env.REACT_APP_API_URL + props.avatarUrl}
+                            src={
+                                process.env.REACT_APP_API_URL + props.avatarUrl
+                            }
                             className="TrainerRating-Avatar-Img"
                         ></img>
                     </div>
@@ -81,15 +85,22 @@ function TrainerRating(props) {
                         <div className="TrainerRating-Info-1">
                             <div className="TrainerRating-Height">
                                 <p>Chiều cao (cm)</p>
-                                <b>{ratingState.height/10}</b>
+                                <b>{ratingState.height / 10}</b>
                             </div>
                             <div className="TrainerRating-Weight">
                                 <p>Cân nặng (kg)</p>
-                                <b>{ratingState.weight/1000}</b>
+                                <b>{ratingState.weight / 1000}</b>
                             </div>
                             <div className="TrainerRating-BMI">
                                 <p>Chỉ số BMI</p>
-                                <b>{Math.round(ratingState.weight/ratingState.height/ratingState.height*10000) / 10}</b>
+                                <b>
+                                    {Math.round(
+                                        (ratingState.weight /
+                                            ratingState.height /
+                                            ratingState.height) *
+                                            10000
+                                    ) / 10}
+                                </b>
                             </div>
                         </div>
                         <div className="TrainerRating-Info-2">
@@ -97,34 +108,42 @@ function TrainerRating(props) {
                             <b>{ratingState.target}</b>
                         </div>
                         <div className="TrainerRating-Info-3">
-                        <p>Đánh giá</p>
-                        <textarea v-model="message" value={ratingState.evaluation} onChange={(e) => {
-                                setShowConfirmFalse(false);
-                                setRatingState({
-                                    ...ratingState,
-                                    evaluation: e.target.value,
-                                });
-                            }}
-                            placeholder="Đánh giá"></textarea>
+                            <p>Đánh giá</p>
+                            <textarea
+                                v-model="message"
+                                value={ratingState.evaluation}
+                                onChange={(e) => {
+                                    setShowConfirmFalse(false);
+                                    setRatingState({
+                                        ...ratingState,
+                                        evaluation: e.target.value,
+                                    });
+                                }}
+                                placeholder="Đánh giá"
+                            ></textarea>
                         </div>
-                        {showConfirmFalse ? <p id="showConfirmFalse">* Bạn chưa đánh giá</p> : null}
+                        {showConfirmFalse ? (
+                            <p id="showConfirmFalse">* Bạn chưa đánh giá</p>
+                        ) : null}
                         <div className="btnRating">
-                        <button
-                            onClick={hanleConfirm}
-                            className="btnSuccessRating"
-                        >
-                            Xác nhận
-                        </button>
-                        <button
-                            className="btnCloseRating"
-                            onClick={() => {
-                                props.setTrigger(false);
-                            }}
-                        >Hủy</button>
+                            <button
+                                onClick={hanleConfirm}
+                                className="btnSuccessRating"
+                            >
+                                Xác nhận
+                            </button>
+                            <button
+                                className="btnCloseRating"
+                                onClick={() => {
+                                    props.setTrigger(false);
+                                }}
+                            >
+                                Hủy
+                            </button>
                         </div>
                     </div>
                 </div>
-            <Popup trigger={showPopup} message="Cập nhật thành công" />
+                <Popup trigger={showPopup} message="Cập nhật thành công" />
             </div>
         </>
     ) : null;

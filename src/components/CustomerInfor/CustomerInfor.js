@@ -410,24 +410,35 @@ function CustomerInfor() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Ngày hết hạn
                                         </h3>
-                                        <input
-                                        //     readOnly={true}
-                                        //     type="date"
-                                        //     className={clsx(styles.inforText)}
-                                        //     value={userProfile.expired_at.substring(
-                                        //         0,
-                                        //         10
-                                        //     )}
-                                        // />
-                                        readOnly={true}
-                                        // ref={birthdayRef}
-                                        type="date"
-                                        className={clsx(styles.inforText)}
-                                        value={userProfile.expired_at ? userProfile.expired_at.substring(
-                                            0,
-                                            10
-                                        ) : ""}
-                                        />
+                                        {userProfile.expired_at && (
+                                                <input
+                                                    //     readOnly={true}
+                                                    //     type="date"
+                                                    //     className={clsx(styles.inforText)}
+                                                    //     value={userProfile.expired_at.substring(
+                                                    //         0,
+                                                    //         10
+                                                    //     )}
+                                                    // />
+                                                    readOnly={true}
+                                                    // ref={birthdayRef}
+                                                    type="date"
+                                                    className={clsx(
+                                                        styles.inforText
+                                                    )}
+                                                    value={
+                                                        userProfile.expired_at
+                                                            ? userProfile.expired_at.substring(
+                                                                  0,
+                                                                  10
+                                                              )
+                                                            : ""
+                                                    }
+                                                />
+                                            )}
+                                            {!userProfile.expired_at && (
+                                                <b>Chưa đăng ký gói tập</b>
+                                            )}
                                     </div>
                                 </div>
                             </div>

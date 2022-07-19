@@ -7,7 +7,7 @@ import avatar from "../../../store/imgs/avatar.jpg";
 import styles from "./MemberList.module.css"
 import practiceInfoAPI from "../../../api/practiceInfoAPI";
 import trainerProfileAPI from '../../../api/trainerProfileAPI';
-
+import { Popup } from "./../../";
 
 
 function Table({ columns, data, date }) {
@@ -61,7 +61,7 @@ function MemberList() {
     let [id, setId] = useState(0);
     let [avatarUrl, setAvatarUrl] = useState('');
     let [memberTraingInfor, setMemberTraingiInfor] = useState({});
-
+    let [showPopupp, setShowPopupp] = useState(1);
 
     const column = [
         {
@@ -146,7 +146,9 @@ function MemberList() {
             if (!id) return;
 
             const response = await practiceInfoAPI.getPracticeInfo(id);
-            
+            // console.log(response.data);
+            showPopupp = response.data.status;
+            setShowPopupp(showPopupp);
             if (response && response.status && response.data.status) {
                 memberTraingInfor = response.data.data.member_training_information;
                 setMemberTraingiInfor(memberTraingInfor);
@@ -165,6 +167,7 @@ function MemberList() {
                 columns={column}
                 data={data}
             />
+            {showPopupp === 0 && alert("Không thể đánh giá!")}
             <TrainerRating trigger={showPopup} setTrigger={setShowPopup} ratingState={memberTraingInfor} avatarUrl={avatarUrl} />
         </>
     )

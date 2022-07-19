@@ -25,18 +25,21 @@ function TrainerDetail() {
             // console.log(trainerInfor);
 
             const _members = await managementAPI.memberListOfTrainer(id);
-            console.log(_members);
-            members = _members.data.data.member_list;
-            setMembers(members);
-            console.log(members);
-            // console.log(trainers)
+            if (_members.data.data) {
+                members = _members.data.data.member_list;
+                setMembers(members);
+                console.log(members);
+            }
         })();
     }, []);
 
     return (
         <div className="trainer-detail-wrapper">
             <div className={clsx(styles.trainerDetailHeader)}>
-                <Link to="/admin/trainers/" className={clsx(styles.backTrainerList)}>
+                <Link
+                    to="/admin/trainers/"
+                    className={clsx(styles.backTrainerList)}
+                >
                     <i class="fas fa-arrow-left"></i>
                 </Link>
                 <h1 className={clsx(styles.trainerHeading)}>HUẤN LUYỆN VIÊN</h1>
@@ -71,7 +74,7 @@ function TrainerDetail() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Họ và tên
                                         </h3>
-                                            <b>{trainerInfor.name}</b>
+                                        <b>{trainerInfor.name}</b>
                                     </div>
                                 </div>
 
@@ -81,7 +84,7 @@ function TrainerDetail() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Số điện thoại
                                         </h3>
-                                            <b>{trainerInfor.phone}</b>
+                                        <b>{trainerInfor.phone}</b>
                                     </div>
                                 </div>
 
@@ -91,19 +94,20 @@ function TrainerDetail() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Ngày sinh
                                         </h3>
-                                            <input
-                                                readOnly={true}
-                                                // ref={birthdayRef}
-                                                type="date"
-                                                className={clsx(
-                                                    styles.inforText
-                                                )}
-                                                value={trainerInfor.birthday ? trainerInfor.birthday.substring(
-                                                    0,
-                                                    10
-                                                ) : ''}/>
-                                               
-                                     
+                                        <input
+                                            readOnly={true}
+                                            // ref={birthdayRef}
+                                            type="date"
+                                            className={clsx(styles.inforText)}
+                                            value={
+                                                trainerInfor.birthday
+                                                    ? trainerInfor.birthday.substring(
+                                                          0,
+                                                          10
+                                                      )
+                                                    : ""
+                                            }
+                                        />
                                     </div>
                                 </div>
 
@@ -113,14 +117,9 @@ function TrainerDetail() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Giới tính
                                         </h3>
-                                            <b
-                                                className={clsx(
-                                                    styles.inforGender
-                                                )}
-                                            >
-                                                {trainerInfor.gender}
-                                            </b>
-                                      
+                                        <b className={clsx(styles.inforGender)}>
+                                            {trainerInfor.gender}
+                                        </b>
                                     </div>
                                 </div>
 
@@ -130,8 +129,7 @@ function TrainerDetail() {
                                         <h3 className={clsx(styles.inforLabel)}>
                                             Địa chỉ
                                         </h3>
-                                            <b>{trainerInfor.address}</b>
-                                    
+                                        <b>{trainerInfor.address}</b>
                                     </div>
                                 </div>
 
@@ -146,41 +144,41 @@ function TrainerDetail() {
                                             // ref={birthdayRef}
                                             type="date"
                                             className={clsx(styles.inforText)}
-                                            value={trainerInfor.created_at ? trainerInfor.created_at.substring(
-                                                0,
-                                                10
-                                            ) : ""}
+                                            value={
+                                                trainerInfor.created_at
+                                                    ? trainerInfor.created_at.substring(
+                                                          0,
+                                                          10
+                                                      )
+                                                    : ""
+                                            }
                                         />
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
-
 
                 <div className="row">
                     <div className={clsx(styles.trainerStudents)}>
                         <h2 className={clsx(styles.trainerDetailTitle)}>
                             Danh sách học viên
                         </h2>
-                        <table className={clsx(styles.tableMemberList)}>
-                            <thead className={clsx(styles.tableHeader)}>
-                                <tr>
-                                    <th>Ảnh</th>
-                                    <th>Họ và tên</th>
-                                    {/* <th>Tuổi</th> */}
-                                    <th>Giới tính</th>
-                                    <th>Số điện thoại</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
+                        {members.length && (
+                            <table className={clsx(styles.tableMemberList)}>
+                                <thead className={clsx(styles.tableHeader)}>
+                                    <tr>
+                                        <th>Ảnh</th>
+                                        <th>Họ và tên</th>
+                                        <th>Giới tính</th>
+                                        <th>Số điện thoại</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-                            <tbody className="students-table-body">
-                                {members.length &&
-                                    members.map((member, index) => {
+                                <tbody className="students-table-body">
+                                    {members.map((member, index) => {
                                         return (
                                             <tr>
                                                 <td>
@@ -193,7 +191,6 @@ function TrainerDetail() {
                                                     />
                                                 </td>
                                                 <td>{member.name}</td>
-                                                {/* <td>{member.name}</td> */}
                                                 <td>{member.gender}</td>
                                                 <td>{member.phone}</td>
                                                 <td>
@@ -214,16 +211,12 @@ function TrainerDetail() {
                                             </tr>
                                         );
                                     })}
-                                {/* <tr>
-                                    <td>1</td>
-                                    <td>Nguyễn Văn Đương</td>
-                                    <td>29</td>
-                                    <td>Nam</td>
-                                    <td>0123455674</td>
-                                    <td><button>Xóa</button></td>
-                                </tr> */}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        )}
+                        {!members.length && (<div className={clsx(styles.emptyList)}>
+                            Chưa có học viên
+                        </div>)}
                     </div>
                     <div className="trainer-schedule">
                         <h2 className={clsx(styles.trainerDetailTitle)}>
